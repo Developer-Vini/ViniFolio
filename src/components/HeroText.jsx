@@ -1,4 +1,4 @@
-import { Cover } from "./cover";
+import { Cover } from "./Cover";
 import { motion } from "motion/react";
 
 const containerVariants = {

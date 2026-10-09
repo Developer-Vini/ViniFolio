@@ -140,14 +140,14 @@ const ParalaxBackground = () => {
             </motion.div>
             <motion.div style={{ y: yLayerFast, rotate: rotateFast }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                    <div className="h-[400px] w-[400px] rounded-full border border-white/[0.05] border-dashed" />
-                    <div className="absolute h-[600px] w-[600px] border border-white/[0.03]" />
+                <div className="h-[400px] w-[400px] rounded-full border border-white/[0.05] border-dashed" />
+                <div className="absolute h-[600px] w-[600px] border border-white/[0.03]" />
             </motion.div>
 
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.85)_100%)] z-20" />
-        
+
             <div className="absolute inset-0 opacity-[0.035] mix-blend-overlay z-30 pointer-events-none"
-            style={{backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,}}/>
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`, }} />
         </div>
     )
 }
