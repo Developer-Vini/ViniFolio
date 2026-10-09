@@ -6,35 +6,74 @@ Source: https://sketchfab.com/3d-models/notebook-98889e0d945e4cf49024420f1589a68
 Title: Notebook
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef, useState } from 'react'
+import { useGLTF, Float } from '@react-three/drei'
+import { useFrame } from "@react-three/fiber"
+import { easing } from "maath"
 
-export function Laptop(props) {
+const OPEN = 0.089;
+const CLOSED = 1.5
+
+export function Laptop({ isMobile, ...props }) {
   const { nodes, materials } = useGLTF('/models/notebook.glb')
+  const roott = useRef();
+  const lid = useRef();
+  const spin = useRef(0);
+  const [hovered, setHovered] = useState(false);
+
+  useFrame((state, delta) => {
+    const t = state.clock.elapsedTime;
+    const { pointer } = state;
+
+    const base = isMobile ? 0.65 : 1;
+    const s = base * (hovered ? 1.06 : 1);
+    easing.damp3(roott.current.scale, [s, s, s], 0.5, delta);
+
+    easing.damp(lid.current.rotation, 'x', t > 0.8 ? OPEN : CLOSED, 0.7.delta);
+
+    const scroll = window.scrollY / window.innerHeight;
+
+    easing.dampE(roott.current.rotation,
+      [
+        -pointer.y * 0.15,
+        pointer.x * 0.4 + scroll * Math.PI + spin.current,
+        0,
+      ],
+      0.35,
+      delta
+    );
+  });
+
   return (
-    <group {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Object_4.geometry}
-        material={materials.Material}
-      />
-      <group position={[0, 0.111, -1.622]} rotation={[0.089, 0, 0]}>
+    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.8} {...props}>
+      <group
+        ref={roott}
+        scale={0}
+        dispose={null}
+        onPointerOver={(e) => {
+          e.stopPropagation();
+          setHovered(true);
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerOut={() => {
+          setHovered(false);
+          document.body.style.cursor = "auto";
+        }}
+        onClick={() => (spin.current += Math.PI * 2)}
+      >
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Object_6.geometry}
+          geometry={nodes.Object_4.geometry}
           material={materials.Material}
         />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_7.geometry}
-          material={materials['Material.001']}
-        />
+        <group ref={lid} position={[0, 0.111, -1.622]} rotation={[CLOSED, 0, 0]}>
+          <mesh geometry={nodes.Object_6.geometry} material={materials.Material} />
+          <mesh geometry={nodes.Object_7.geometry} material={materials["Material.001"]} />
+        </group>
       </group>
-    </group>
-  )
+    </Float>
+  );
 }
 
 useGLTF.preload('/models/notebook.glb')
