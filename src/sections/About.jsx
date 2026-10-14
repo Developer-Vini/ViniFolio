@@ -22,15 +22,14 @@ const About = () => {
 
                     </div>
                     {
-
                     }
                     <div className='grid-black-color grid-2'>
 
                         <div className='flex items-center justify-center w-full h-full'>
                             <p className='flex items-center text-5xl text-gray-500'>CODE IS CRAFT</p>
-                        {/*<Card style={{ rotate: "75deg", top: "30%", left: "20%" }} text="Vini" />*/}
+                            {/*<Card style={{ rotate: "75deg", top: "30%", left: "20%" }} text="Vini" />*/}
                         </div>
-                        
+
                     </div>
                     <div className='grid-default-color grid-3'>
                         <div className='z-10 w-[50%]'>
