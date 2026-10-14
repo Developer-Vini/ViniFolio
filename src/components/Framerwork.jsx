@@ -1,7 +1,7 @@
 import { OrbitingCircles } from "./OrbitinCircles"
 
 export function Framerwork() {
-    const skills = ["auth0", "visualstudiocode","sqlite.svg", "csharp", "github", "html5", "css3", "git", "tailwindcss", "javascript", "react", "vitejs", "threejs"]
+    const skills = ["auth0", "visualstudiocode","sqlite", "csharp", "github", "html5", "css3", "git", "tailwindcss", "javascript", "react", "vitejs", "threejs"]
     return (
         <div className="relative flex h-[15rem] w-full flex-col items-center justify-center ">
             <OrbitingCircles iconSize={40}>
