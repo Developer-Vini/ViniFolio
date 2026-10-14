@@ -94,12 +94,13 @@ const itemVariants = {
 };
 
 const HeroText = () => {
-    return <div className="z-10 mt-20 rounded-3xl text-center md:mt-40 md:text-left bg-clip-text">
+    return(
+     <div className="z-10 mt-20 rounded-3xl text-center md:mt-40 md:text-left bg-clip-text">
         <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="c-space hidden flex-col space-y-3 md:flex"
+            className="c-space hidden flex-col space-y-3 md:flex md:max-w-[55%] lg:max-w-[52%] md:ml-10 lg:ml-24"
         >
             <motion.h1
                 variants={slideFromLeft}
@@ -107,7 +108,7 @@ const HeroText = () => {
             </motion.h1>
             <motion.p
                 variants={popUpSpring}
-                className="text-5xl font-medium text-neutral-300">
+                className="text-5xl font-medium text-neutral-300 lg:text-5xl">
                 Full Stack Developer
             </motion.p>
 
@@ -123,7 +124,7 @@ const HeroText = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible">
-            <p variants={slideFromLeft} className="text-4xl font-medium">Hi, I'm Marcio Vinicius</p>
+            <motion.p variants={slideFromLeft} className="text-4xl font-medium">Hi, I'm Marcio Vinicius</motion.p>
             <motion.div variants={popUpSpring} className="space-y-2">
                 <p className="text-5xl font-black text-neutral-300">Building</p>
                 <div>
@@ -134,7 +135,7 @@ const HeroText = () => {
         </motion.div>
 
     </div>
-
+    )
 }
 
 export default HeroText;

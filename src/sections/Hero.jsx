@@ -39,9 +39,9 @@ const Hero = () => {
                     <Suspense fallback={null}>
                         <Laptop
                         isMobile={isMobile}
-                        position={isMobile ? [0, -3.2, 0] : [5, -2, 0]} />
+                        position={isMobile ? [0, -3.2, 0] : [2.5, -1.5, 0]} />
                     </Suspense>
-                    <OrbitControls />
+                    {/* <OrbitControls />*/}
                 </Canvas>
             </figure>
         </section>

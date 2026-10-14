@@ -24,14 +24,16 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     return <div className="fixed inset-x-0 z-20 w-full backdrop:blur-lg bg-primary/40">
         <div className="mx-auto c-space max-w-7xl">
-            <div className="flex items-center justify-between py-2 sm:py-0">
-                <a href="/" className="text-xl font-bold transition-colors text-neutral-400 hover:text-white">Marcio Vinicius</a>
-                <button onClick={() => setIsOpen(!isOpen)} className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden">
-                    <img src={isOpen ? "public/assets/close.svg" : "public/assets/menu.svg"} className="w-6 h-6" />
-                </button>
-                <nav className="hidden sm:flex">
-                    <Navigation />
-                </nav>
+            <div className='max-w-[1500px] mx-auto'>
+                <div className="flex items-center justify-between py-2 sm:py-0">
+                    <a href="/" className="text-xl font-bold transition-colors text-neutral-400 hover:text-white">Marcio Vinicius</a>
+                    <button onClick={() => setIsOpen(!isOpen)} className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden">
+                        <img src={isOpen ? "public/assets/close.svg" : "public/assets/menu.svg"} className="w-6 h-6" />
+                    </button>
+                    <nav className="hidden sm:flex">
+                        <Navigation />
+                    </nav>
+                </div>
             </div>
         </div>
         {isOpen && (<motion.div className="block overflow-hidden text-center sm:hidden" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} style={{ duration: 1 }}>
