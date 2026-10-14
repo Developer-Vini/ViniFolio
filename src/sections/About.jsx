@@ -12,7 +12,7 @@ const About = () => {
                 <h2 className='text-heading'>About Me</h2>
                 <div className='grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12'>
                     <div className='grid-default-color grid-1'>
-                        <img src="/public/assets/coding-pov.png" className='absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]' alt="" />
+                        <img src="/assets/coding-pov.png" className='absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]' alt="" />
                         <div className='relative z-10'>
                             <p className='headtext'>Hi, I'm Marcio Vinicius</p>
                             <p className='subtext'>  I'm a full stack developer with 3 years of experience building both backend and
