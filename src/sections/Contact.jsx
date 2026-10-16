@@ -8,11 +8,11 @@ const lines = ["Let's build", "something", "great together."]
 const email = "vkmarcio3@gmail.com";
 
 const mediaSocials = [
-    { name: "Github", handle: "@Developer-Vini", href: "https://github.com/Developer-Vini" },
-    { name: "LinkedIn", handle: "Marcio Vinicius", href: "https://www.linkedin.com/in/márcio-vinicius-090074363" },
-    { name: "Instagram", handle: "@vini_zx0", href: "https://www.instagram.com/vini_.zx0/" },
-    { name: "Youtube", handle: "O Dev", href: "https://www.youtube.com/@o_devzin" },
-    { name: "TikTok", handle: "Vini", href: "https://www.tiktok.com/@dev.vini" }
+    { name: "Github", handle: "@Developer-Vini", href: "https://github.com/Developer-Vini", icon: "assets/socials/github.svg"},
+    { name: "LinkedIn", handle: "Marcio Vinicius", href: "https://www.linkedin.com/in/márcio-vinicius-090074363", icon: "assets/socials/linkedIn.svg" },
+    { name: "Instagram", handle: "@vini_zx0", href: "https://www.instagram.com/vini_.zx0/", icon: "assets/socials/instagram.svg" },
+    { name: "Youtube", handle: "O Dev", href: "https://www.youtube.com/@o_devzin", icon: "assets/socials/youtube.svg"},
+    { name: "TikTok", handle: "Vini", href: "https://www.tiktok.com/@dev.vini", icon: "assets/socials/tiktok.svg"}
 ]
 
 const phrases = ["Available for work", "Let's talk"];
@@ -114,7 +114,14 @@ const Contact = () => {
                                     <span className="w-8 font-mono text-xs transition-colors duration-500 md:w-12 md:text-sm text-neutral-500 group-hover:text-black/60">
                                         {String(i + 1).padStart(2, "0")}
                                     </span>
-                                    <span className="flex-1 text-2xl font-bold tracking-tight transition-transform duration-500 md:text-4xl group-hover:translate-x-3">
+                                    <span className="flex items-center flex-1 gap-4 text-2xl font-bold tracking-tight transition-transform duration-500 md:text-4xl group-hover:translate-x-3">
+                                        {s.icon && (
+                                            <img
+                                                src={s.icon}
+                                                alt=""
+                                                className="transition duration-500 size-6 md:size-8 brightness-0 invert group-hover:invert-0"
+                                            />
+                                        )}
                                         {s.name}
                                     </span>
 
