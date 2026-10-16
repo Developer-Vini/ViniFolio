@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Check, Copy } from "lucide-react";
+import { text } from "motion/react-client";
 
 
 const ease = [0.22, 1, 0.36, 1];
@@ -15,6 +16,7 @@ const mediaSocials = [
     { name: "TikTok", handle: "Vini", href: "https://www.tiktok.com/@dev.vini" }
 ]
 
+const phrases = ["Available for work", "Let's talk"];
 
 const Contact = () => {
     const [copied, setCopied] = useState(false);
@@ -130,6 +132,35 @@ const Contact = () => {
                         </motion.li>
                     ))}
                 </ul>
+                <div className="flex mt-24 overflow-hidden select-none gap-(--gap) [--gap:3rem]">
+                    {[0, 1].map((n) => (
+                        <div
+                            key={n}
+                            aria-hidden={n === 1}
+                            className="flex items-center shrink-0 gap-(--gap) animate-marquee"
+                        >
+                            {[...phrases, ...phrases].map((text, i) => (
+                                <span key={i} className="flex items-center gap-(--gap)">
+                                    <span className={`text-5xl font-bold uppercase whitespace-nowrap md:text-8xl ${i % 2 === 0 ? "text-transparent [-webkit-text-stroke:1px_#737373]" : "text-white"}`}>
+                                        {text}
+                                    </span>
+                                    <span className="text-3xl text-neutral-600">-</span>
+                                </span>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="flex items-center justify-between mt-16 text-sm text-neutral-500">
+                    <p>{new Date().getFullYear()} Marcio Vinicius(Marcinho)</p>
+                    <button type="button"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="inline-flex items-center gap-3 transition-colors cursor-pointer group hover:text-white"
+                    >Back to top
+                        <span className="grid transition-all duration-300 border rounded-full size-10 place-items-center border-white/20 group-hover:-translate-y-1 group-hover:border-white group-hover:bg-white group-hover:text-black">
+                            <ArrowUp className="size-4" />
+                        </span>
+                    </button>
+                </div>
             </div>
         </section>
     )
