@@ -22,7 +22,7 @@ const Avatar = () => {
                     <textPath href="#avatar-ring">{text}</textPath>
                 </text>
             </svg>
-            <img width="260" src="assets/me.jpg" alt="" />
+            <img src="assets/me.jpg" alt="" />
         </motion.div>
     )
 }
