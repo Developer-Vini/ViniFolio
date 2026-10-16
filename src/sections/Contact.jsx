@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { ArrowUp, ArrowUpRight, Check, Copy } from "lucide-react";
-import { text } from "motion/react-client";
-
+import Avatar from "../components/Avatar";
 
 const ease = [0.22, 1, 0.36, 1];
 const lines = ["Let's build", "something", "great together."]
@@ -34,18 +33,23 @@ const Contact = () => {
                     03 — Contact
                 </p>
 
-                <h2 className="mt-6 text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl lg:text-9xl">
-                    {lines.map((line, i) => (
-                        <span key={line} className="block overflow-hidden pb-[0.1em]">
-                            <motion.span className={`block ${i == 2 ? "text-neutral-500" : ""}`}
-                                initial={{ y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true, margin: "-80px" }}
-                                transition={{ duration: 0.9, delay: i * 0.12, ease }}
+                <div className="relative mt-6">
 
-                            >{line}</motion.span>
-                        </span>
-                    ))}
-                </h2>
+                    <h2 className="text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl lg:text-9xl">
+                        {lines.map((line, i) => (
+                            <span key={line} className="block overflow-hidden pb-[0.1em]">
+                                <motion.span className={`block ${i == 2 ? "text-neutral-500" : ""}`}
+                                    initial={{ y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true, margin: "-80px" }}
+                                    transition={{ duration: 0.9, delay: i * 0.12, ease }}
 
+                                >{line}</motion.span>
+                            </span>
+                        ))}
+                    </h2>
+                    <div className="mt-10 xl:absolute xl:right-0 xl:top-0 xl:mt-0">
+                        <Avatar />
+                    </div>
+                </div>
                 <button
                     type="button"
                     onClick={copy}
