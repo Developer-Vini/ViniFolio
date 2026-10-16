@@ -7,7 +7,7 @@ import { Framerwork } from '../components/Framerwork'
 
 const About = () => {
     return (
-        <section className='c-space section-space'>
+        <section id="about" className='c-space section-space'>
             <div className='max-w-[1500px] mx-auto'>
                 <h2 className='text-heading'>About Me</h2>
                 <div className='grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12'>
