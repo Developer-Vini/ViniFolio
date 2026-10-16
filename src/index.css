@@ -64,6 +64,8 @@ body {
 
 html {
   font-size: clamp(16px, 0.55vw + 10px, 22px);
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 .c-space {
